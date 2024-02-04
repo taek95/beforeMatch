@@ -4,11 +4,6 @@ spring:
     username: ${username}
     password: ${pwd}
 
-  jasypt:
-    encryptor:
-      bean: jasyptStringEncryptor
-      password : ${encrypt}
-
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
