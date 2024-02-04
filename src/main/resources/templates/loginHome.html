@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>AboutMatch</title>
+    <!-- Favicon-->
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" sizes="16x16">
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .my_bg {
+                background-image: url("/assets/loginHomeBackGround.jpg");
+                background-size: cover;
+                background-position: center;
+            }
+    </style>
+</head>
+<body>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <span><a class="navbar-brand" th:href="@{/}">AboutMatch</a></span>
+        <span>Welcome! manager <a th:href="@{/}">[[${loginMember.memberName}]]</a></span>
+        <form class="d-flex" th:action="@{/logout}" method="post">
+            <button class="btn btn-outline-dark" type="submit">
+                <i class="bi-cart-fill me-1"></i>
+                logout
+            </button>
+        </form>
+    </div>
+</nav>
+<!-- Header-->
+<header class="py-1">
+    <div class="container px-4 px-lg-5 my-3">
+        <div class="text-center">
+            <h1 class="display-4 fw-bolder">AboutMatch</h1>
+            <p class="lead fw-normal text-black-50 mb-0">make a formation || rating your team</p>
+        </div>
+    </div>
+</header>
+<!-- Section-->
+<section class="bg-dark py-3 my_bg">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="/assets/formation.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">Before Match</h5>
+                            <!-- Product price-->
+                            make your team squad!
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Here we go</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Sale badge-->
+                    <!--                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>-->
+                    <!-- Product image-->
+                    <img class="card-img-top" src="/assets/rating.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">After Match</h5>
+                            <!-- Product price-->
+                            Make your team rating!
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Here we go</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer-->
+<br>
+<footer class="py-3">
+    <div class="container"><p class="m-0 text-center text-black">Copyright &copy; AboutMatch 2024</p></div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
