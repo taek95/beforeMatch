@@ -17,9 +17,9 @@ jobs:
     permissions:
       contents: write
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up JDK 17
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'adopt'
@@ -38,7 +38,7 @@ jobs:
       run: ./gradlew clean build
       shell: bash
     - name: Get current time
-      uses: 1466587594/get-current-time@v2
+      uses: 1466587594/get-current-time@v4
       id: current-time
       with:
         format: YYYY-MM-DDTHH-mm-ss
