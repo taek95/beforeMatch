@@ -6,7 +6,10 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+env:
+  S3_BUCKET_NAME: aboutmatch-build
+  CODE_DEPLOY_APP_NAME: aboutMatch
+  CODE_DEPLOY_GROUP_NAME: aboutMatch-group
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,21 +22,28 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+    
     - name: Grant execute permission for gradlew
       run: chmod +x ./gradlew
       shell: bash
+    
     - name: Build with Gradle
       run: ./gradlew clean build
       shell: bash
+    
     - name: Make zip file
       run: zip -r ./deploy.zip .
       shell: bash
+    
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
         aws-region: ap-northeast-2
+    
     - name: Upload to S3
       run: aws s3 cp --region ap-northeast-2 ./deploy.zip s3://aboutmatch-build/deploy.zip
  
+    - name: Code Deploy
+      run: aws deploy create-deployment --application-name $CODE_DEPLOY_APP_NAME --deployment-config-name CodeDeployDefault.AllAtOnce -- deployment-group-name $CODE_DEPLOY_GROUP_NAME --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=aboutMatch.zip
