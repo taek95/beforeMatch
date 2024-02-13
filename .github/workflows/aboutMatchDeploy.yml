@@ -6,10 +6,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-env:
-  S3_BUCKET_NAME: aboutmatch-build
-  CODE_DEPLOY_APP_NAME: aboutMatch
-  CODE_DEPLOY_GROUP_NAME: aboutMatch-group
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -46,4 +43,8 @@ jobs:
       run: aws s3 cp --region ap-northeast-2 ./deploy.zip s3://aboutmatch-build/deploy.zip
  
     - name: Code Deploy
-      run: aws deploy create-deployment --application-name $CODE_DEPLOY_APP_NAME --deployment-config-name CodeDeployDefault.AllAtOnce -- deployment-group-name $CODE_DEPLOY_GROUP_NAME --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=aboutMatch.zip
+      run: aws deploy create-deployment
+       --application-name aboutMatch
+       --deployment-config-name CodeDeployDefault.AllAtOnce
+       --deployment-group-name aboutMatch-group
+       --s3-location bucket=aboutmatch-build,bundleType=zip,key=deploy.zip
