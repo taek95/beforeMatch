@@ -13,7 +13,6 @@ public class HomeController {
     @GetMapping("/")
     public String loginHome(
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember, Model model) {
-        //f
         if(loginMember == null) return "home";
         model.addAttribute("loginMember", loginMember);
         return "loginHome";
