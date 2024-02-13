@@ -42,7 +42,7 @@ jobs:
     - name: Upload to S3
       run: aws s3 cp --region ap-northeast-2 ./deploy.zip s3://aboutmatch-build/deploy.zip
 
-    - name: Code Deploy in Code group by CodeDeploy
+    - name: Code Deploy
       run: aws deploy create-deployment
        --application-name aboutMatch
        --deployment-config-name CodeDeployDefault.AllAtOnce
