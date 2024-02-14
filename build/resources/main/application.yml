@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mariadb://aboutmatch-rds.ca55tt0yaprx.ap-northeast-2.rds.amazonaws.com:3306/aboutmatch_rds
-    username: taek
-    password: Gusxor!!5126
+    url: ${{ secrets.DB_URL }}
+    username: ${{ secrets.DB_USERNAME }}
+    password: ${{ secrets.DB_USERPWD }}
 
   thymeleaf:
     prefix: classpath:/templates/
