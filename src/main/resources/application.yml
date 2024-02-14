@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${url}
-    username: ${username}
-    password: ${pwd}
+    url: ${{ secrets.DB_URL }}
+    username: ${{ secrets.DB_USERNAME }}
+    password: ${{ secrets.DB_USERPWD }}
 
   thymeleaf:
     prefix: classpath:/templates/
