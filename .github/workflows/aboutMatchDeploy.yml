@@ -54,8 +54,4 @@ jobs:
       run: aws s3 cp --region ap-northeast-2 ./deploy.zip s3://aboutmatch-build/deploy.zip
 
     - name: Code Deploy
-      run: aws deploy create-deployment
-       --application-name aboutMatch
-       --deployment-config-name CodeDeployDefault.AllAtOnce
-       --deployment-group-name aboutMatch-group
-       --s3-location bucket=aboutmatch-build,bundleType=zip,key=deploy.zip
+      run: aws deploy create-deployment --application-name aboutMatch --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name aboutMatch-group --s3-location bucket=aboutmatch-build,bundleType=zip,key=deploy.zip
