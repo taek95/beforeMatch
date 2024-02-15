@@ -15,7 +15,7 @@ else
     kill -15 $(pgrep -fl deploy | grep jar | awk '{print $1}')
     sleep 5
 fi
-
+#//d
 echo "> 새 어플리케이션 배포"
 
 echo "> JAR Name: $(ls -tr /home/ubuntu/app/step2/*.jar | tail -n 1)
