@@ -2,17 +2,17 @@ version: 0.0
 os: linux
 
 files:
-  - source: / # CodeDeploy에서 전달해 준 파일 중 destination으로 이동시킬 대상 지정: 루트 경로(전체 파일)
-    destination: /home/ubuntu/app/step2/zip/ # source에서 지정한 파일을 받을 위치
+  - source: /
+    destination: /home/ubuntu/app/step2/zip/
     overwrite: yes
 
 permissions:
-  - object: /
+  - object: /home/ubuntu/app/step2/zip/
     pattern: "**"
     owner: ubuntu
     group: ubuntu
 
 hooks:
   ApplicationStart:
-    - location: deploy.sh
+    - location: ./scripts/deploy.sh
       timeout: 60
