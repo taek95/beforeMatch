@@ -21,7 +21,6 @@ jobs:
         distribution: 'temurin'
     
     - name: Set Yaml
-      uses: microsoft/variable-substitution@v2
       with:
         files: ./src/main/resources/application.yml 
       env:
