@@ -20,13 +20,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
     
-    - name: Set Yaml
-      with:
-        files: ./src/main/resources/application.yml 
-      env:
-        spring.datasource.url: ${{ secrets.DB_URL }} 
-        spring.datasource.username: ${{ secrets.DB_USERNAME }} 
-        spring.datasource.password: ${{ secrets.DB_USERPWD }} 
+    # - name: Set Yaml
+    #   with:
+    #     files: ./src/main/resources/application.yml 
+    #   env:
+    #     spring.datasource.url: ${{ secrets.DB_URL }} 
+    #     spring.datasource.username: ${{ secrets.DB_USERNAME }} 
+    #     spring.datasource.password: ${{ secrets.DB_USERPWD }} 
     
     - name: Generate deployment package
       run: |
