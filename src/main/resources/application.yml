@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://aboutmatch-rds.ca55tt0yaprx.ap-northeast-2.rds.amazonaws.com:3306/aboutmatch-rds
+    url: jdbc:mariadb://aboutmatch-rds.ca55tt0yaprx.ap-northeast-2.rds.amazonaws.com:3306
     username: taek
     password: aboutmatch123
 
