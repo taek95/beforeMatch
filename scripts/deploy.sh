@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPOSITORY=/home/ubuntu/app/step2/zip
+REPOSITORY=/home/ubuntu/app/step2
 #PROJECT_NAME=deploy
 
 #echo "> Build 파일 복사"
@@ -24,7 +24,7 @@ REPOSITORY=/home/ubuntu/app/step2/zip
 
 echo "> 새 어플리케이션 배포"
 
-JAR_NAME=$(ls -tr $REPOSITORY/build/libs/*.jar | tail -n 1)
+JAR_NAME=$(ls -tr $REPOSITORY/zip/build/libs/*.jar | tail -n 1)
 
 echo "> JAR Name: $JAR_NAME"
 
