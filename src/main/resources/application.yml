@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${{ secrets.DB_URL }}
-    username: ${{ secrets.DB_USERNAME }}
-    password: ${{ secrets.DB_USERPWD }}
+    url: jdbc:mysql://aboutmatch-rds.ca55tt0yaprx.ap-northeast-2.rds.amazonaws.com:3306/aboutmatch-rds
+    username: taek
+    password: aboutmatch123
 
   thymeleaf:
     prefix: classpath:/templates/
