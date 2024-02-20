@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Favicon-->
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" sizes="16x16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AboutMatch</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        body {
+          background-image: url(/assets/loginBG.jpg);
+          background-size: cover;
+<!--          background-position: bottom;-->
+
+        }
+
+        .input-form {
+          max-width: 680px;
+          margin-top: 80px;
+          padding: 32px;
+
+          background: #fff;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+          -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="input-form-background row">
+        <div class="input-form col-md-12 mx-auto">
+            <h4 class="mb-3">로그인</h4>
+            <form action="" th:action="@{/login}" th:object="${login}" class="validation-form" method="post" novalidate>
+                <div class="mb-3">
+                    <label for="loginEmail">이메일</label>
+                    <input type="email" class="form-control" id="loginEmail" th:field="*{loginEmail}"
+                           placeholder="you@example.com" required>
+                    <div style="color:red;" th:errors="*{loginEmail}"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="loginPwd">비밀 번호</label>
+                    <input type="password" class="form-control" id="loginPwd" th:field="*{loginPwd}" required>
+                    <div style="color:red;" th:errors="*{loginPwd}"></div>
+                </div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">로그인</button>
+            </form>
+        </div>
+    </div>
+    <footer class="my-3 text-center text-white">
+        <p class="mb-1">&copy; 2024 AboutMatch</p>
+    </footer>
+</div>
+<script>
+    window.addEventListener('load', () => {
+      const forms = document.getElementsByClassName('validation-form');
+
+      Array.prototype.filter.call(forms, (form) => {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+</script>
+</body>
+
+</html>
