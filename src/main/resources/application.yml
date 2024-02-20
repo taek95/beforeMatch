@@ -16,10 +16,11 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
-
-
+  
 logging.level:
   org.hibernate.SQL: debug
+  springframework: debug
+  springframework.web: debug
 
 server:
   servlet:
