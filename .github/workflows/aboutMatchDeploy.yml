@@ -20,6 +20,18 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
     
+    - name: Grant execute permission for gradlew
+      run: chmod +x ./gradlew
+      shell: bash
+    
+    - name: Build with Gradle
+      run: ./gradlew clean build
+      shell: bash
+      
+    - name: Make zip file
+      run: zip -r ./deploy.zip .
+      shell: bash
+      
     - name: Generate deployment package
       run: |
         mkdir -p before-deploy
@@ -29,18 +41,6 @@ jobs:
         cd before-deploy && zip -r before-deploy *
         cd ../ && mkdir -p deploy
         mv before-deploy/before-deploy.zip deploy/deploy.zip
-      shell: bash
-      
-    - name: Grant execute permission for gradlew
-      run: chmod +x ./gradlew
-      shell: bash
-    
-    - name: Build with Gradle
-      run: ./gradlew clean build
-      shell: bash
-    
-    - name: Make zip file
-      run: zip -r ./deploy.zip .
       shell: bash
     
     - name: Configure AWS credentials
