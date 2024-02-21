@@ -4,7 +4,7 @@ REPOSITORY=/home/ubuntu/app/
 echo "> 현재 구동중인 애플리케이션 pid 확인"
 
 # 수행 중인 애플리케이션 프로세스 ID => 구동 중이면 종료하기 위함
-CURRENT_PID=$(pgrep -fl java  | grep jar | awk '{print $1}')
+CURRENT_PID=$(pgrep -fl java | awk '{print $1}')
 
 echo "현재 구동중인 어플리케이션 pid: $CURRENT_PID"
 
