@@ -3,7 +3,7 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://
     username:
-    password: 
+    password:
 
   thymeleaf:
     prefix: classpath:/templates/
