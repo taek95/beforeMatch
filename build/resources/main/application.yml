@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://aboutmatch-rds.ca55tt0yaprx.ap-northeast-2.rds.amazonaws.com:3306/aboutmatch_rds
-    username: taek
-    password: aboutmatch123
+    url: jdbc:mariadb://
+    username: 
+    password: 
 
   thymeleaf:
     prefix: classpath:/templates/
@@ -11,7 +11,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validates
     properties:
       hibernate:
         format_sql: true
