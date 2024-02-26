@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public class MemberRepository {
 
-    @PersistenceContext
+    @PersistenceContext // 영속성 컨텍스트
     private EntityManager em;
 
     public void save(Member member) {

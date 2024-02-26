@@ -7,11 +7,11 @@ import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+@Entity // JPA가 관리할 객체
 @Getter @Setter
 public class Member {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue // @Id : PK매핑
     public Long id;
 
     @Pattern(regexp = "^[ㄱ-ㅎ|가-힣]*$", message = "한글만 가능합니다.")
