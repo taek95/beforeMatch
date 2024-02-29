@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://aboutmatch-rds.ca55tt0yaprx.ap-northeast-2.rds.amazonaws.com:3306/aboutmatch-rds
+    username: taek
+    password: aboutmatch123
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
+  jpa:
+    hibernate:
+      ddl-auto: validates
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+
+logging.level:
+  org.hibernate.SQL: debug
+  springframework: debug
+  springframework.web: debug
+
+server:
+  servlet:
+    session:
+      timeout:
+      tracking-modes: cookie
