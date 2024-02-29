@@ -28,8 +28,6 @@ chmod +x $JAR_NAME # Jar 파일은 실행 권한이 없는 상태이므로 권�
 
 echo "> $JAR_NAME 실행"
 
-nohup java -jar
-    -Dspring.config.location=classpath:/application.yml,/home/ubuntu/app/application-real-db.yml
-    $JAR_NAME > /dev/null 2>&1 &
+nohup java -jar -Dspring.config.location=classpath:/application.yml,/home/ubuntu/app/application-real-db.yml $JAR_NAME > /dev/null 2>&1 &
 #nohup java -jar $JAR_NAME > /dev/null 2>&1 &
 
