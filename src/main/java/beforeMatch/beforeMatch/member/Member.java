@@ -2,6 +2,7 @@ package beforeMatch.beforeMatch.member;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
@@ -11,7 +12,7 @@ import lombok.Setter;
 @Getter @Setter
 public class Member {
 
-    @Id @GeneratedValue // @Id : PK매핑
+    @Id @GeneratedValue(strategy = GenerationType.AUTO) // @Id : PK매핑, 자동생성,
     public Long id;
 
     @Pattern(regexp = "^[ㄱ-ㅎ|가-힣]*$", message = "한글만 가능합니다.")

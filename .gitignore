@@ -13,7 +13,7 @@
 .idea/**/shelf
 
 test/
-
+application.yml
 # AWS User-specific
 .idea/**/aws.xml
 
