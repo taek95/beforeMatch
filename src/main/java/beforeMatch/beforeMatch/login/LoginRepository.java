@@ -15,7 +15,7 @@ public class LoginRepository {
     private EntityManager em;
 
     public Optional<Member> findByLoginId(String loginId) {
-        List<Member> members = em.createQuery("select m from Member m where m.member_id = :memberId", Member.class)
+        List<Member> members = em.createQuery("select m from Member m where m.memberId = :memberId", Member.class)
                 .setParameter("memberId", loginId)
                 .getResultList();
         return members.stream().findAny();
