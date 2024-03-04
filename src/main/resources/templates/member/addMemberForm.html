@@ -70,14 +70,14 @@
             <label for="memberAddress">주소</label>
             <input type="text" class="form-control" id="memberAddress" th:field="*{memberAddress}" required>
           </div>
-          <button class="btn btn-primary btn-lg btn-block" onclick="return validatePassword()" type="submit">가입 완료</button>
-        </form>
           <div class="mb-3">
             <label for="memberName">이름</label>
             <input type="text" class="form-control" id="memberName" th:field="*{memberName}"
-                  placeholder="2글자부터 5글자까지 한글만 입력 가능 합니다." required>
+                   placeholder="2글자부터 5글자까지 한글만 입력 가능 합니다." required>
             <div style="color:red;" th:errors="*{memberName}"></div>
-        </div>
+          </div>
+          <button class="btn btn-primary btn-lg btn-block" onclick="return validatePassword()" type="submit">가입 완료</button>
+        </form>
       </div>
     </div>
     <footer class="my-3 text-center text-white">
