@@ -4,7 +4,10 @@ import beforeMatch.beforeMatch.member.Member;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Getter @Setter
@@ -15,7 +18,10 @@ public class Board {
 
     public String title;
     public String content;
-    public LocalDateTime time;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    public Date time;
+
     public int good;
 
     @ManyToOne

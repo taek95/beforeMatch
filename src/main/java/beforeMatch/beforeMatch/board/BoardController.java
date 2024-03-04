@@ -13,6 +13,8 @@ public class BoardController {
 
     @GetMapping("/board")
     public String board(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember, Model model){
+        if (loginMember == null) return "home";
+
         model.addAttribute(loginMember);
         return "board/boardForm";
     }
