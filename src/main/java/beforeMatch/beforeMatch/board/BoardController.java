@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 public class BoardController {
 
     @GetMapping("/board")
-    public String board(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember, Model model){
+    public String board(
+            @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember, Model model){
         if (loginMember == null) return "home";
 
         model.addAttribute(loginMember);
