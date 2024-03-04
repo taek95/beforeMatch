@@ -1,27 +1,35 @@
 package beforeMatch.beforeMatch.member;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import beforeMatch.beforeMatch.board.Board;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity // JPA가 관리할 객체
 @Getter @Setter
 public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO) // @Id : PK매핑, 자동생성,
-    public Long id;
+    public int id;
+
+    public String memberId;
+
+    @Pattern(regexp = "^[a-zA-Z0-9]+@[0-9a-zA-Z]+\\.[a-z]+$", message = "이메일 형식을 지켜주시기 바랍니다.")
+    public String memberEmail;
+
+    @Pattern(regexp = "^(?=.*[a-zA-Z])((?=.*\\d)|(?=.*\\W)).{10,128}+$", message = "대소문자 + 숫자 + 특수문자 조합으로 10자리 이상 입력해 주세요")
+    public String memberPwd;
+
+    public String memberAddress;
 
     @Pattern(regexp = "^[ㄱ-ㅎ|가-힣]*$", message = "한글만 가능합니다.")
     @Size(max=5, message = "이름의 최대 길이는 5자 입니다.")
     public String memberName;
-    @Pattern(regexp = "^[a-zA-Z0-9]+@[0-9a-zA-Z]+\\.[a-z]+$", message = "이메일 형식을 지켜주시기 바랍니다.")
-    public String memberEmail;
-    @Pattern(regexp = "^(?=.*[a-zA-Z])((?=.*\\d)|(?=.*\\W)).{10,128}+$", message = "대소문자 + 숫자 + 특수문자 조합으로 10자리 이상 입력해 주세요")
-    public String memberPwd;
-    public String memberAddress;
 
+    @OneToMany(mappedBy = "member")
+    List<Board> boards = new ArrayList<>();
 }

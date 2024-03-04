@@ -1,5 +1,6 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -22,7 +23,7 @@
   <div class="content">
     
     <div class="container">
-      <h2 class="mb-5">축구 게시판</h2>
+      <h2 class="mb-5">축구 게시판 Welcome! manager <a th:href="@{/}">[[${loginMember.memberId}]]</a></h2>
       
 
       <div class="table-responsive custom-table-responsive">

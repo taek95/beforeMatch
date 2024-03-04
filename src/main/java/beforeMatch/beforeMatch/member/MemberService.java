@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class MemberService {
 
@@ -22,7 +21,7 @@ public class MemberService {
     }
 
     private void validateDuplicateUser(Member member) {
-        List<Member> findMembers = memberRepository.findByMemberEmail(member.getMemberEmail());
-        if(!findMembers.isEmpty()) throw new IllegalStateException("이미 존재하는 회원입니다.");
+        List<Member> findMembers = memberRepository.findByMemberId(member.getMemberId());
+        if(!findMembers.isEmpty()) throw new IllegalStateException("이미 존재하는 아이디입니다.");
     }
 }

@@ -20,9 +20,9 @@ public class MemberRepository {
         return em.find(Member.class, id);
     }
 
-    public List<Member> findByMemberEmail(String memberEmail) {
-        return em.createQuery("select m from Member m where m.memberEmail = :memberEmail" , Member.class)
-                .setParameter("memberEmail",memberEmail)
+    public List<Member> findByMemberId(String memberId) {
+        return em.createQuery("select m from Member m where m.memberId = :memberId" , Member.class)
+                .setParameter("memberId",memberId)
                 .getResultList();
     }
 
