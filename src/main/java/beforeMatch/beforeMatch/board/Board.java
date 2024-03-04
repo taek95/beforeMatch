@@ -19,9 +19,6 @@ public class Board {
     public String title;
     public String content;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    public Date time;
-
     public int good;
 
     @ManyToOne
