@@ -13,7 +13,7 @@ import java.util.List;
 @Getter @Setter
 public class Member {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) // @Id : PK매핑, 자동생성,
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) // @Id : PK매핑, 자동생성,
     public int id;
 
     public String memberId;

@@ -13,7 +13,7 @@ import java.util.Date;
 @Getter @Setter
 public class Board {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int id;
 
     public String title;
