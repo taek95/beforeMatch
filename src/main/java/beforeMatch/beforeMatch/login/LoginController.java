@@ -37,7 +37,7 @@ public class LoginController {
                 bindingResult.addError(new FieldError("login", "loginPwd", e.getMessage()));
                 return "login/loginForm";
             }catch (NullPointerException ne){
-                bindingResult.addError(new FieldError("login", "loginEmail", ne.getMessage()));
+                bindingResult.addError(new FieldError("login", "loginId", ne.getMessage()));
                 return "login/loginForm";
             }
 

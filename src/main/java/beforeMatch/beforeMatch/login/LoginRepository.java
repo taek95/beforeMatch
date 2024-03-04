@@ -14,9 +14,9 @@ public class LoginRepository {
     @PersistenceContext
     private EntityManager em;
 
-    public Optional<Member> findByLoginEmail(String loginEmail) {
-        List<Member> members = em.createQuery("select m from Member m where m.memberEmail = :memberEmail", Member.class)
-                .setParameter("memberEmail", loginEmail)
+    public Optional<Member> findByLoginId(String loginId) {
+        List<Member> members = em.createQuery("select m from Member m where m.member_id = :memberId", Member.class)
+                .setParameter("memberId", loginId)
                 .getResultList();
         return members.stream().findAny();
     }

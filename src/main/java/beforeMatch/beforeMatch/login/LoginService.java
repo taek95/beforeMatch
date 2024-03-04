@@ -17,7 +17,7 @@ public class LoginService {
     private final LoginRepository loginRepository;
 
     public Member login(Login login) {
-        Optional<Member> findMember = loginRepository.findByLoginEmail(login.getLoginEmail());
+        Optional<Member> findMember = loginRepository.findByLoginId(login.getLoginId());
         if(findMember.isEmpty()) throw new NullPointerException("아이디가 존재하지 않습니다.");
 
         Member member = findMember.get();
