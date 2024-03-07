@@ -22,7 +22,6 @@ public class BoardController {
     @GetMapping("/board")
     public String board(
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember,
-            Pageable pageable,
             Model model)
     {
         if (loginMember == null) return "home";
