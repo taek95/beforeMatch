@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BoardRepository extends JpaRepository<Board, Integer> {
 
-    Member findByMemberId(String memberId);
+    Member findByMemberMemberId(String memberId);
 
     //    // 페이지네이션
 //    Page<Board> find
