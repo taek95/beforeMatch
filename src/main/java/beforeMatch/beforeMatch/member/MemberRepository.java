@@ -16,8 +16,8 @@ public class MemberRepository {
         em.persist(member);
     }
 
-    public Member findOne(Integer id) {
-        return em.find(Member.class, id);
+    public Member findOne(String memberId) {
+        return em.find(Member.class, memberId);
     }
 
     public List<Member> findByMemberId(String memberId) {

@@ -1,6 +1,7 @@
 package beforeMatch.beforeMatch.board;
 
 import beforeMatch.beforeMatch.member.Member;
+import beforeMatch.beforeMatch.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class BoardService {
     private final BoardRepository boardRepository;
+    private final MemberRepository memberRepository;
 
     @Transactional
     public void save(Board board) {
@@ -17,7 +19,7 @@ public class BoardService {
 
     @Transactional
     public Member find(String loginId) {
-        return boardRepository.findByMemberMemberId(loginId);
+        return memberRepository.findOne(loginId);
 
     }
 }
