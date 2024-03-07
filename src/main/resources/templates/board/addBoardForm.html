@@ -44,7 +44,7 @@
         <div class="input-form col-md-12 mx-auto">
             <form action="" th:action="@{/board/add}" th:object="${board}" method="post">
                 <div class="mb-3">
-                    [[${loginMember.loginId}]]
+                    [[${board.member.memberId}]]
                 </div>
                 <div class="mb-3">
                     <label for="title">제목</label>

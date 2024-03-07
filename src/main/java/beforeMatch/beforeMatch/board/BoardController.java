@@ -39,7 +39,6 @@ public class BoardController {
         board.setMember(member);
         model.addAttribute("loginMember",loginMember);
         model.addAttribute("board", board);
-        model.addAttribute("member", member);
         return "board/addBoardForm";
     }
 
