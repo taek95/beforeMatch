@@ -34,7 +34,7 @@ public class BoardController {
     public String addBoard(
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember, Model model){
         if (loginMember == null) return "home";
-        Member member = boardService.find(loginMember.getLoginId());
+        Member member = boardService.findMember(loginMember.getLoginId());
         model.addAttribute("loginMember",loginMember);
         model.addAttribute("board", new Board());
         model.addAttribute("member", member);
