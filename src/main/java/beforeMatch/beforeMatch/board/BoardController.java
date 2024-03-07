@@ -40,7 +40,9 @@ public class BoardController {
 
     @PostMapping("/board/add")
     public String addBoard(@Validated Board board, BindingResult bindingResult) {
-
+        if(bindingResult.hasErrors())
+            return "board/addBoardForm";
+        boardService.save(board);
         return "board/boardForm";
 
     }
