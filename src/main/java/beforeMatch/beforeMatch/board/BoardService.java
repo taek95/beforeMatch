@@ -17,7 +17,7 @@ public class BoardService {
 
     @Transactional
     public Member find(String loginId) {
-        return boardRepository.findByMemberMemberId(loginId);
+        return boardRepository.findByMember(loginId);
 
     }
 }
