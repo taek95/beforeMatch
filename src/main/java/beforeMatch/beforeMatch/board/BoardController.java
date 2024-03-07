@@ -2,6 +2,7 @@ package beforeMatch.beforeMatch.board;
 
 import beforeMatch.beforeMatch.login.Login;
 import beforeMatch.beforeMatch.login.SessionConst;
+import beforeMatch.beforeMatch.member.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,6 +35,7 @@ public class BoardController {
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember, Model model){
         if (loginMember == null) return "home";
         model.addAttribute("loginMember",loginMember);
+        model.addAttribute("board", new Board());
         return "board/addBoardForm";
     }
 
