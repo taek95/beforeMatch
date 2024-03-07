@@ -55,6 +55,9 @@
                               required></textarea>
                     <div style="color:red;" th:errors="*{content}"></div>
                 </div>
+                <div class="mb-3">
+                    [[${member.id}]]
+                </div>
                 <button class="btn btn-primary btn-lg btn-block" type="submit">작성 완료</button>
             </form>
         </div>
