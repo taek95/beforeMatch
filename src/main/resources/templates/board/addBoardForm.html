@@ -44,6 +44,9 @@
         <div class="input-form col-md-12 mx-auto">
             <form action="" th:action="@{/board/add}" th:object="${board}" method="post">
                 <div class="mb-3">
+                    [[${loginMember.loginId}]]
+                </div>
+                <div class="mb-3">
                     <label for="title">제목</label>
                     <input type="text" class="form-control" id="title" th:field="*{title}" required>
                     <div style="color:red;" th:errors="*{title}"></div>
@@ -54,9 +57,6 @@
                               name="content" class="form-control" id="content" th:field="*{content}"
                               required></textarea>
                     <div style="color:red;" th:errors="*{content}"></div>
-                </div>
-                <div class="mb-3">
-                    [[${member.id}]]
                 </div>
                 <button class="btn btn-primary btn-lg btn-block" type="submit">작성 완료</button>
             </form>

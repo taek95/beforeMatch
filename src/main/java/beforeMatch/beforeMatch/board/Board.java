@@ -21,6 +21,6 @@ public class Board {
     public int good;
 
     @ManyToOne
-    @JoinColumn(name = "memid")
+    @JoinColumn(name = "memid", referencedColumnName = "id")
     public Member member;
 }

@@ -35,8 +35,10 @@ public class BoardController {
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember, Model model){
         if (loginMember == null) return "home";
         Member member = boardService.findMember(loginMember.getLoginId());
+        Board board = new Board();
+        board.setMember(member);
         model.addAttribute("loginMember",loginMember);
-        model.addAttribute("board", new Board());
+        model.addAttribute("board", board);
         model.addAttribute("member", member);
         return "board/addBoardForm";
     }
