@@ -43,10 +43,13 @@ public class BoardController {
     }
 
     @PostMapping("/board/add")
-    public String addBoard(@Validated Board board, BindingResult bindingResult) {
+    public String addBoard(@Validated Board board, BindingResult bindingResult,
+                           @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember,
+                           Model model) {
         if(bindingResult.hasErrors())
             return "board/addBoardForm";
         boardService.save(board);
+        model.addAttribute("loginMember",loginMember);
         return "board/boardForm";
 
     }
