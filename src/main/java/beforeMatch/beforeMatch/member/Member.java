@@ -14,7 +14,7 @@ import java.util.List;
 public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) // @Id : PK매핑, 자동생성,
-    public int id;
+    public Integer id;
 
     public String memberId;
 
