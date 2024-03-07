@@ -34,11 +34,8 @@ public class BoardController {
     public String addBoard(
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember, Model model){
         if (loginMember == null) return "home";
-        Member member = boardService.findMember(loginMember.getLoginId());
-        Board board = new Board();
-        board.setMember(member);
         model.addAttribute("loginMember",loginMember);
-        model.addAttribute("board", board);
+        model.addAttribute("board", new Board());
         return "board/addBoardForm";
     }
 
@@ -48,6 +45,8 @@ public class BoardController {
                            Model model) {
         if(bindingResult.hasErrors())
             return "board/addBoardForm";
+        Member member = boardService.findMember(loginMember.getLoginId());
+        board.setMember(member);
         boardService.save(board);
         model.addAttribute("loginMember",loginMember);
         return "board/boardForm";

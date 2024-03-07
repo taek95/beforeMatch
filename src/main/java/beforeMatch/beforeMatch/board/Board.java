@@ -18,9 +18,8 @@ public class Board {
 
     public String title;
     public String content;
-    public int good;
+    public Integer good;
 
     @ManyToOne
-    @JoinColumn(name = "memid", referencedColumnName = "id")
     public Member member;
 }
