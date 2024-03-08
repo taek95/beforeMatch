@@ -26,7 +26,7 @@ public class BoardController {
     public String board(
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember,
             Model model,
-            @PageableDefault(page = 0, size=10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable)
+            @PageableDefault(page = 0, size=10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable)
     {
         if (loginMember == null) return "home";
         Page<Board> list = boardService.boardList(pageable);

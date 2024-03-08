@@ -38,6 +38,11 @@
         </li>
       </ul>
     </div>
+    <button type="button" class="btn btn-primary" th:onclick="|location.href='@{/board/add}'|">
+        <i class="bi-cart-fill me-1"></i>
+        글쓰기
+    </button>
+    </form>
     <form class="d-flex" th:action="@{/logout}" method="post">
       <button class="btn btn-outline-dark" type="submit">
         <i class="bi-cart-fill me-1"></i>
@@ -70,8 +75,9 @@
     </thead>
     <tbody>
     <tr th:each = "board:${list}">
-      <td th:text="${board.id}">1</td>
-      <td th:text="${board.title}">제목입니다.</td>
+      <td th:text="${board.id}"></td>
+      <a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}"></a>
+
     </tr>
     </tbody>
   </table>
