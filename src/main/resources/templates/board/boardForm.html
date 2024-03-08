@@ -38,11 +38,12 @@
         </li>
       </ul>
     </div>
+
     <button type="button" class="btn btn-primary" th:onclick="|location.href='@{/board/add}'|">
-        <i class="bi-cart-fill me-1"></i>
-        글쓰기
+      <i class="bi-cart-fill me-1"></i>
+      글쓰기
     </button>
-    </form>
+    &nbsp;
     <form class="d-flex" th:action="@{/logout}" method="post">
       <button class="btn btn-outline-dark" type="submit">
         <i class="bi-cart-fill me-1"></i>
@@ -76,7 +77,7 @@
     <tbody>
     <tr th:each = "board:${list}">
       <td th:text="${board.id}"></td>
-      <a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}"></a>
+      <a th:text="${board.title}"></a>
 
     </tr>
     </tbody>
