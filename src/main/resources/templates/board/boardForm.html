@@ -16,6 +16,11 @@
             background-size: cover;
             background-position: center;
         }
+    .layout {
+        width: 500px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
   </style>
 </head>
 <body>
@@ -55,6 +60,22 @@
   </div>
 </header>
 
+<div class="layout">
+  <table>
+    <thead>
+    <tr>
+      <th>글번호</th>
+      <th>제목</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each = "board:${list}">
+      <td th:text="${board.id}">1</td>
+      <td th:text="${board.title}">제목입니다.</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 <!-- Footer-->
 <br>
 <footer class="py-3">

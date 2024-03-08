@@ -4,6 +4,8 @@ import beforeMatch.beforeMatch.login.Login;
 import beforeMatch.beforeMatch.login.SessionConst;
 import beforeMatch.beforeMatch.member.Member;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,21 +14,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
-import java.awt.print.Pageable;
-
 @RequiredArgsConstructor
 @Controller
 public class BoardController {
 
     private final BoardService boardService;
+    private final BoardRepository boardRepository;
 
     @GetMapping("/board")
     public String board(
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember,
-            Model model)
+            Model model, Pageable pageable)
     {
         if (loginMember == null) return "home";
+        Page<Board> page = boardRepository.findAll(pageable);
         model.addAttribute("loginMember",loginMember);
+        model.addAttribute("list",page);
         return "board/boardForm";
     }
 
