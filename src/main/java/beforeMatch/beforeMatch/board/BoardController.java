@@ -6,6 +6,8 @@ import beforeMatch.beforeMatch.member.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,17 +21,24 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 public class BoardController {
 
     private final BoardService boardService;
-    private final BoardRepository boardRepository;
 
     @GetMapping("/board")
     public String board(
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember,
-            Model model, Pageable pageable)
+            Model model,
+            @PageableDefault(page = 0, size=10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable)
     {
         if (loginMember == null) return "home";
-        Page<Board> page = boardRepository.findAll(pageable);
+        Page<Board> list = boardService.boardList(pageable);
+        int nowPage = list.getPageable().getPageNumber() + 1;
+        int startPage = Math.max(nowPage-4,1);
+        int endPage = Math.min(nowPage+9, list.getTotalPages());
         model.addAttribute("loginMember",loginMember);
-        model.addAttribute("list",page);
+        model.addAttribute("list",list);
+        model.addAttribute("nowPage",nowPage);
+        model.addAttribute("startPage",startPage);
+        model.addAttribute("endPage",endPage);
+
         return "board/boardForm";
     }
 
