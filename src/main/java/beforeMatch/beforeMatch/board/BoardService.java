@@ -27,6 +27,7 @@ public class BoardService {
         return memberRepository.findOne(loginId);
     }
 
+    @Transactional
     public Page<Board> boardList(Pageable pageable) {
         return boardRepository.findAll(pageable);
     }

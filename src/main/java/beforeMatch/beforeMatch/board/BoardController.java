@@ -61,7 +61,7 @@ public class BoardController {
         board.setMember(member);
         boardService.save(board);
         model.addAttribute("loginMember",loginMember);
-        return "board/boardForm";
+        return "redirect:/board";
 
     }
 }
