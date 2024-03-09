@@ -27,8 +27,8 @@ public class BoardService {
     }
 
     @Transactional
-    public Optional<Board> findBoard(int boardId) {
-        return boardRepository.findById(boardId);
+    public Board findBoard(int boardId) {
+        return boardRepository.getReferenceById(boardId);
     }
 
     @Transactional
