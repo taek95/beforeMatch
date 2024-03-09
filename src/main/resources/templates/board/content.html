@@ -65,20 +65,7 @@
   </div>
 </header>
 <div class="container">
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>글번호</th>
-      <th>제목</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each = "board:${list}">
-      <td th:text="${board.id}"></td>
-      <td> <a th:text="${board.title}" th:href="@{/board/{id}(id=${board.id})}"></a> </td>
-    </tr>
-    </tbody>
-  </table>
+  [[${board.content}]]
 </div>
 <div class = "page_div">
   <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
