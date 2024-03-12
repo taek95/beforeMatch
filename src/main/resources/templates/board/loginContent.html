@@ -64,6 +64,17 @@
             <p class="lead fw-normal text-black-50 mb-0">자유로운 축구 게시판</p>
         </div>
     </div>
+    <div>
+        <span th:if="${board.member.memberId == loginMember.loginId}">
+            될까
+<!--            <form class="d-flex" th:action="@{board/list/delete/{id}" method="post">-->
+<!--                        <button class="btn btn-outline-dark" type="submit">-->
+<!--                            <i class="bi-cart-fill me-1"></i>-->
+<!--                            삭제-->
+<!--                        </button>-->
+<!--                    </form>-->
+        </span>
+    </div>
 </header>
 <div class="container my_div">
     [[${board.content}]]
