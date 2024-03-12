@@ -71,10 +71,12 @@
 </div>
 <div>
     <span th:if="${board.member.memberId == loginMember.loginId}">
-        <form class="d-flex" th:action="@{/}" method="post">
-            <button class="btn btn-outline-dark" type="submit">
-                <i class="bi-cart-fill me-1"></i>
+        <form class="d-flex" th:action="@{/board/list/${board.id}" method="post">
+            <input type="hidden" name="_method" value="delete"/>
+            <button class="btn btn-primary" type="submit">
+                <i class="bi-cart-fill me-1">
                 삭제
+                </i>
             </button>
         </form>
     </span>

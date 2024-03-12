@@ -12,27 +12,28 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class BoardService {
     private final BoardRepository boardRepository;
     private final MemberRepository memberRepository;
 
-    @Transactional
     public void save(Board board) {
         boardRepository.save(board);
     }
 
-    @Transactional
     public Member findMember(String loginId) {
         return memberRepository.findOne(loginId);
     }
 
-    @Transactional
     public Board findBoard(int boardId) {
         return boardRepository.getReferenceById(boardId);
     }
 
-    @Transactional
     public Page<Board> boardList(Pageable pageable) {
         return boardRepository.findAll(pageable);
+    }
+
+    public void boardContentDelete(int boardId) {
+        boardRepository.deleteById(boardId);
     }
 }
