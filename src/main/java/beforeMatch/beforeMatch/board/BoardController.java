@@ -76,4 +76,5 @@ public class BoardController {
         model.addAttribute("board", boardService.findBoard(id));
         return "board/content";
     }
+
 }
