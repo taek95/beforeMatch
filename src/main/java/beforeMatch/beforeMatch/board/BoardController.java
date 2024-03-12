@@ -75,10 +75,10 @@ public class BoardController {
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember,
             @PathVariable Integer id,
             Model model){
-        if (loginMember == null) return "home";
-        model.addAttribute("loginMember",loginMember);
         model.addAttribute("board", boardService.findBoard(id));
-        return "board/content";
+        if (loginMember == null) return "board/content";
+        model.addAttribute("loginMember",loginMember);
+        return "board/loginContent";
     }
 
 }
