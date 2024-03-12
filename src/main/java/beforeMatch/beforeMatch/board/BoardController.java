@@ -38,7 +38,7 @@ public class BoardController {
         model.addAttribute("nowPage",nowPage);
         model.addAttribute("startPage",startPage);
         model.addAttribute("endPage",endPage);
-        if(loginMember == null) 
+        if(loginMember == null)
             return "board/boardForm";
         else {
             model.addAttribute("loginMember", loginMember);
