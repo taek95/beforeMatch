@@ -15,7 +15,11 @@
                 background-image: url("/assets/loginHomeBackGround.jpg");
                 background-size: cover;
                 background-position: center;
-            }
+        }
+        .page_div {
+                text-align : center;
+        }
+
     </style>
 </head>
 <body>
@@ -41,6 +45,11 @@
                 </li>
             </ul>
         </div>
+
+        <button type="button" class="btn btn-primary" th:onclick="|location.href='@{/board/add}'|">
+            <i class="bi-cart-fill me-1"></i>
+            글쓰기
+        </button>
     </div>
 </nav>
 <!-- Header-->
@@ -52,56 +61,33 @@
     <div class="container px-4 px-lg-5 my-3">
         <div class="text-center">
             <h1 class="display-4 fw-bolder">AboutMatch</h1>
+            <p class="lead fw-normal text-black-50 mb-0">자유로운 축구 게시판</p>
         </div>
     </div>
 </header>
-<!-- Section-->
-<section class="bg-dark py-3 my_bg">
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <!-- Product image-->
-                    <img class="card-img-top" src="/assets/formation.jpg" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <h5 class="fw-bolder">Before Match</h5>
-                            <!-- Product price-->
-                            make your team squad!
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Here we go</a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <!-- Sale badge-->
-                    <!--                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>-->
-                    <!-- Product image-->
-                    <img class="card-img-top" src="/assets/rating.jpg" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <h5 class="fw-bolder">After Match</h5>
-                            <!-- Product price-->
-                            Make your team rating!
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Here we go</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "board:${list}">
+            <td th:text="${board.id}"></td>
+            <td> <a th:text="${board.title}" th:href="@{/board/{id}(id=${board.id})}"></a> </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class = "page_div">
+    <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
+        <!--    쿼리 스트링 넘길때 슬래쉬 다음 바로 하니까 적용이 안되네...-->
+        <a th:if="${page != nowPage}" th:href="@{/board/list(page=${page-1})}" th:text ="${page}"></a>
+        <strong th:if="${page==nowPage}" th:text ="${page}" style="color:red"></strong>
+    </th:block>
+</div>
 <!-- Footer-->
 <br>
 <footer class="py-3">

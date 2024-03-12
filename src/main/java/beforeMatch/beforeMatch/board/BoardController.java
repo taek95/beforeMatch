@@ -30,18 +30,21 @@ public class BoardController {
             // 쿼리스트링 형식으로 요청이 들어오면 pageable이 객체를 자동으로 만들어준다.
             @PageableDefault(page = 0, size=10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable)
     {
-        if (loginMember == null) return "home";
         Page<Board> list = boardService.boardList(pageable);
         int nowPage = list.getPageable().getPageNumber() + 1;
         int startPage = Math.max(nowPage-4,1);
         int endPage = Math.min(nowPage+9, list.getTotalPages());
-        model.addAttribute("loginMember",loginMember);
         model.addAttribute("list",list);
         model.addAttribute("nowPage",nowPage);
         model.addAttribute("startPage",startPage);
         model.addAttribute("endPage",endPage);
+        if(loginMember == null) 
+            return "board/boardForm";
+        else {
+            model.addAttribute("loginMember", loginMember);
+            return "board/loginBoardForm";
+        }
 
-        return "board/boardForm";
     }
 
     @GetMapping("/board/add")
