@@ -33,22 +33,18 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:href="@{/board}">게시판</a>
+          <a class="nav-link active" aria-current="page" th:href="@{/board/list}">게시판</a>
+        </li>
+        <li class="nav-item">
+          <form class="d-flex" th:action="@{/logout}" method="post">
+            <button class="btn btn-outline-dark" type="submit">
+              <i class="bi-cart-fill me-1"></i>
+              logout
+            </button>
+          </form>
         </li>
       </ul>
     </div>
-
-    <button type="button" class="btn btn-primary" th:onclick="|location.href='@{/board/add}'|">
-      <i class="bi-cart-fill me-1"></i>
-      글쓰기
-    </button>
-    &nbsp;
-    <form class="d-flex" th:action="@{/logout}" method="post">
-      <button class="btn btn-outline-dark" type="submit">
-        <i class="bi-cart-fill me-1"></i>
-        logout
-      </button>
-    </form>
   </div>
 </nav>
 <!-- Header-->

@@ -27,6 +27,7 @@ public class BoardController {
     public String boardList(
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember,
             Model model,
+            // 쿼리스트링 형식으로 요청이 들어오면 pageable이 객체를 자동으로 만들어준다.
             @PageableDefault(page = 0, size=10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable)
     {
         if (loginMember == null) return "home";
