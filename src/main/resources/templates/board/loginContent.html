@@ -64,22 +64,20 @@
             <p class="lead fw-normal text-black-50 mb-0">자유로운 축구 게시판</p>
         </div>
     </div>
-
+    <div class="container">
+        <span th:if="${board.member.memberId == loginMember.loginId}">
+            <form class="d-flex" th:action="@{/board/list/{id}(id=${board.id})}" th:method="delete">
+                <button class="btn btn-primary" type="submit">
+                    삭제
+                </button>
+            </form>
+        </span>
+    </div>
 </header>
 <div class="container my_div">
     [[${board.content}]]
 </div>
-<div>
-    <span th:if="${board.member.memberId == loginMember.loginId}">
-        <form class="d-flex" th:action="@{/board/list/{id}(id=${board.id})}" th:method="delete">
-            <button class="btn btn-primary" type="submit">
-                <i class="bi-cart-fill me-1">
-                삭제
-                </i>
-            </button>
-        </form>
-    </span>
-</div>
+
 <!-- Footer-->
 <br>
 <footer class="py-3">
