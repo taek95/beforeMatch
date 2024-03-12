@@ -23,8 +23,8 @@ public class BoardController {
 
     private final BoardService boardService;
 
-    @GetMapping("/board")
-    public String board(
+    @GetMapping("/board/list")
+    public String boardList(
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember,
             Model model,
             @PageableDefault(page = 0, size=10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable)
