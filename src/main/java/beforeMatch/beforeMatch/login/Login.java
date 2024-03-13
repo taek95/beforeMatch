@@ -12,7 +12,6 @@ public class Login {
 
     public String loginId;
 
-    @Pattern(regexp = "^(?=.*[a-zA-Z])((?=.*\\d)|(?=.*\\W)).{10,128}+$", message = "비밀번호를 잘못 입력하셨습니다.")
     public String loginPwd;
 
     public String memberName;

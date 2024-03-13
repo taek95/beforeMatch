@@ -21,7 +21,6 @@ public class Member {
     @Pattern(regexp = "^[a-zA-Z0-9]+@[0-9a-zA-Z]+\\.[a-z]+$", message = "이메일 형식을 지켜주시기 바랍니다.")
     public String memberEmail;
 
-    @Pattern(regexp = "^(?=.*[a-zA-Z])((?=.*\\d)|(?=.*\\W)).{10,128}+$", message = "대소문자 + 숫자 + 특수문자 조합으로 10자리 이상 입력해 주세요")
     public String memberPwd;
 
     public String memberAddress;
