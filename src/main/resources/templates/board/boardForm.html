@@ -59,7 +59,7 @@
     </thead>
     <tbody>
     <tr th:each = "board:${list}">
-      <td th:text="${board.id}"></td>
+      <td th:text="${list.getTotalElements - (list.number * list.size) - board.index}"></td>
       <td> <a th:text="${board.title}" th:href="@{/board/{id}(id=${board.id})}"></a> </td>
     </tr>
     </tbody>
