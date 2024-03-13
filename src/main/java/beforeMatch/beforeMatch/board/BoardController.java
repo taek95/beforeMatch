@@ -30,7 +30,7 @@ public class BoardController {
         Page<Board> list = boardService.boardList(pageable);
         int nowPage = list.getPageable().getPageNumber();
         int startPage = Math.max(nowPage-4,1);
-        int endPage = nowPage+3;
+        int endPage = nowPage+2;
         model.addAttribute("list",list);
         model.addAttribute("nowPage",nowPage);
         model.addAttribute("startPage",startPage);
@@ -63,7 +63,7 @@ public class BoardController {
         board.setMember(member);
         boardService.save(board);
         model.addAttribute("loginMember",loginMember);
-        return "redirect:/board";
+        return "redirect:/board/list";
 
     }
 
