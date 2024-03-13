@@ -28,7 +28,7 @@ public class BoardController {
             @PageableDefault(page = 1, size=10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable)
     {
         Page<Board> list = boardService.boardList(pageable);
-        int nowPage = list.getPageable().getPageNumber() + 1;
+        int nowPage = list.getPageable().getPageNumber();
         int startPage = Math.max(nowPage-4,1);
         int endPage = Math.min(nowPage+9, list.getTotalPages());
         model.addAttribute("list",list);
