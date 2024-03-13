@@ -25,7 +25,7 @@ public class BoardController {
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember,
             Model model,
             // 쿼리스트링 형식으로 요청이 들어오면 pageable이 객체를 자동으로 만들어준다.
-            //
+            // 아니 시팔 왜 안올라가늗ㄴ데 
             @PageableDefault(page = 1, size=10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable)
     {
         Page<Board> list = boardService.boardList(pageable);
