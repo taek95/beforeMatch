@@ -58,8 +58,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each = "board:${list}">
-      <td th:text="${list.getTotalElements - (list.number * list.size) - board.index}"></td>
+    <tr th:each = "board, loop:${list}">
+      <td th:text="${list.getTotalElements - (list.number * list.size) - loop.index}"></td>
       <td> <a th:text="${board.title}" th:href="@{/board/{id}(id=${board.id})}"></a> </td>
     </tr>
     </tbody>
