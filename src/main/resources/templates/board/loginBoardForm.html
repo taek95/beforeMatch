@@ -84,7 +84,7 @@
 <div class = "page_div">
     <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
         <!--    쿼리 스트링 넘길때 슬래쉬 다음 바로 하니까 적용이 안되네...-->
-        <a th:if="${page != nowPage}" th:href="@{/board/list(page=${page})}" th:text ="${page}"></a>
+        <a th:if="${page != nowPage}" th:href="@{/board/list(page=${page-1})}" th:text ="${page}"></a>
         <strong th:if="${page==nowPage}" th:text ="${page}" style="color:red"></strong>
     </th:block>
 </div>
