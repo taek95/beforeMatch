@@ -17,7 +17,7 @@ public class HomeController {
         if(loginMember == null) return "home";
         model.addAttribute("loginMember", loginMember);
         if(loginMember.getLoginId().equals("fcista"))
-            return "adminHome";
+            return "fcIstaHome";
         return "loginHome";
     }
 }
