@@ -30,7 +30,7 @@ public class BoardController {
         Page<Board> list = boardService.boardList(pageable);
         int nowPage = list.getPageable().getPageNumber();
         int startPage = Math.max(nowPage-4,1);
-        int endPage = Math.min(nowPage+9, list.getTotalPages());
+        int endPage = nowPage+3;
         model.addAttribute("list",list);
         model.addAttribute("nowPage",nowPage);
         model.addAttribute("startPage",startPage);
