@@ -30,7 +30,7 @@ h1{
 	margin: 0 auto;
 	max-width: 55%;
 	height:auto;
-    background-image: url("assets/squad/pitch-bg.png");
+    background-image: url("/assets/squad/pitch-bg.png");
     background-repeat: repeat;
 	transform: translateY(-600px);
 	-webkit-transform: translateY(-600px);
