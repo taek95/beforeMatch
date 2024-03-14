@@ -8,6 +8,6 @@ public class SquadController {
 
     @GetMapping("/squad/add")
     public String addSquad() {
-        return "squad/addSquadForm";
+        return "squad/addSquadForm2";
     }
 }
