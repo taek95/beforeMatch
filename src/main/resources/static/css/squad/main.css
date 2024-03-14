@@ -54,7 +54,7 @@ h1{
 }
 
 .player{
-	background-image: url("assets/squad/player-shirt.png");
+	background-image: url("/assets/squad/player-shirt.png");
 	background-repeat: no-repeat;
 	background-size: contain;
 	display: inline-block;
