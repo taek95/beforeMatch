@@ -16,9 +16,9 @@ public class HomeController {
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember, Model model) {
         if(loginMember == null) return "home";
         model.addAttribute("loginMember", loginMember);
-//        if(loginMember.getLoginId().equals("fcista"))
-//            return "test";
-        return "test";
+        if(loginMember.getLoginId().equals("fcista"))
+            return "test";
+        return "loginHome";
     }
 
 }
