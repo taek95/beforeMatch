@@ -45,7 +45,7 @@ public class LoginController {
         // 세션이 있으면 가져오고 없으면 새로 생성해서 return
         HttpSession session = request.getSession(true);
         session.setAttribute(SessionConst.LOGIN_MEMBER, login);
-        return "redirect:/loginHome";
+        return "redirect:/";
         }
 
     @PostMapping("/logout")
