@@ -14,10 +14,13 @@ public class HomeController {
     public String loginHome(
             // 이미 로그인된 사용자 찾을 때, required = false 하면 새로운 세션을 생성하지 않는다.
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember, Model model) {
-        if(loginMember == null) return "test";
         model.addAttribute("loginMember", loginMember);
         if(loginMember.getLoginId().equals("fcista"))
             return "fcIstaHome";
         return "loginHome";
+    }
+    @GetMapping("/home")
+    public String home() {
+        return "home";
     }
 }
