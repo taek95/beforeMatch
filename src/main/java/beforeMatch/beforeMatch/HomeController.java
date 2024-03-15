@@ -21,7 +21,7 @@ public class HomeController {
         if(loginMember == null) return "home";
         HttpSession session = request.getSession(false);
         model.addAttribute("loginMember", loginMember);
-        if(loginMember.getLoginId().equals("fcista") && session != null)
+        if(loginMember.getLoginId().equals("fcista") && session == null)
             return "fcIstaHome";
         if(session != null)
             return "loginHome";
