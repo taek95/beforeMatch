@@ -15,14 +15,7 @@
                 background-image: url("/assets/loginHomeBackGround.jpg");
                 background-size: cover;
                 background-position: center;
-        }
-        .page_div {
-                text-align : center;
-        }
-        li {
-            margin-top: 5px;
-            margin-right: 10px;
-        }
+            }
     </style>
 </head>
 <body>
@@ -39,13 +32,9 @@
                     <a class="nav-link active" aria-current="page" th:href="@{/board/list}">게시판</a>
                 </li>
                 <li class="nav-item">
-                    <button type="button" class="btn btn-primary" th:onclick="|location.href='@{/board/add}'|">
-                        선수 등록
-                    </button>
-                </li>
-                <li class="nav-item">
                     <form class="d-flex" th:action="@{/logout}" method="post">
                         <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
                             logout
                         </button>
                     </form>
@@ -63,51 +52,48 @@
     <div class="container px-4 px-lg-5 my-3">
         <div class="text-center">
             <h1 class="display-4 fw-bolder">AboutMatch</h1>
-            <p class="lead fw-normal text-black-100 mb-0">2024시즌 FC ISTA 선수 기록</p>
         </div>
     </div>
 </header>
-<div class="container">
-    <table class="table table-bordered .table-border">
-        <thead>
-        <tr>
-            <th scope="col">등번호</th>
-            <th scope="col">이름</th>
-            <th scope="col">경기수</th>
-            <th scope="col">득점</th>
-            <th scope="col">어시스트</th>
-        </tr>
-        </thead>
-        <tbody>
-<!--        <tr th:each = "board, loop:${list}">-->
-<!--            <td th:text="${list.getTotalElements - (list.number * list.size) - loop.index}"></td>-->
-<!--            <td> <a th:text="${board.title}" th:href="@{/board/{id}(id=${board.id})}"></a> </td>-->
-<!--            <td> <a th:text="${board.member.memberId}"></a> </td>-->
-<!--        </tr>-->
-        <tr>
-            <td>18</td>
-            <td>오현택</td>
-            <td>46</td>
-            <td>18</td>
-            <td>4</td>
-        </tr>
-        </tbody>
-    </table>
+<div class="input-form-background row">
+    <div class="input-form col-md-12 mx-auto">
+        <form action="" th:action="@{/record/add}" th:object="${record}" method="post">
+            <div class="mb-3">
+                <label for="backNum">등번호</label>
+                <input type="text" class="form-control" id="backNum" th:field="*{backNum}" required>
+                <div style="color:red;" th:errors="*{backNum}"></div>
+            </div>
+            <div class="mb-3">
+                <label for="name">이름</label>
+                <input type="text" class="form-control" id="name" th:field="*{name}" required>
+                <div style="color:red;" th:errors="*{name}"></div>
+            </div>
+            <div class="mb-3">
+                <label for="matchNum">경기수</label>
+                <input type="text" value="0" class="form-control" id="matchNum" th:field="*{matchNum}" required>
+                <div style="color:red;" th:errors="*{matchNum}"></div>
+            </div>
+            <div class="mb-3">
+                <label for="score">득점</label>
+                <input type="text" value="0" class="form-control" id="score" th:field="*{score}" required>
+                <div style="color:red;" th:errors="*{score}"></div>
+            </div>
+            <div class="mb-3">
+                <label for="assist">어시스트</label>
+                <input type="text" value="0" class="form-control" id="assist" th:field="*{assist}" required>
+                <div style="color:red;" th:errors="*{assist}"></div>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">작성 완료</button>
+        </form>
+    </div>
 </div>
-<!--<div class = "page_div">-->
-<!--    <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">-->
-<!--        &lt;!&ndash;    쿼리 스트링 넘길때 슬래쉬 다음 바로 하니까 적용이 안되네...&ndash;&gt;-->
-<!--        <a th:if="${page != nowPage}" th:href="@{/board/list(page=${page-1})}" th:text ="${page}"></a>-->
-<!--        <strong th:if="${page==nowPage}" th:text ="${page}" style="color:red"></strong>-->
-<!--    </th:block>-->
-<!--</div>-->
-<!-- Footer-->
-<br>
-<footer class="py-3">
-    <div class="container"><p class="m-0 text-center text-black">Copyright &copy; AboutMatch 2024</p></div>
-</footer>
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Footer-->
+    <br>
+    <footer class="py-3">
+        <div class="container"><p class="m-0 text-center text-black">Copyright &copy; AboutMatch 2024</p></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
