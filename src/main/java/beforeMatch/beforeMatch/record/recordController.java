@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class recordController {
 
-    @GetMapping("/record")
+    @GetMapping("/record/list")
     public String record() {
         return "record/recordList";
     }
