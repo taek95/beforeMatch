@@ -19,7 +19,6 @@ public class RecordController {
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember,
             Model model) {
         model.addAttribute("loginMember", loginMember);
-        model.addAttribute("record",new Record());
         return "record/recordList";
     }
 

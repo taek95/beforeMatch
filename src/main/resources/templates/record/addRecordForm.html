@@ -56,32 +56,27 @@
     </div>
 </header>
 <div class="input-form-background row">
-    <div class="input-form col-md-12 mx-auto">
+    <div class="input-form col-md-8 mx-auto">
         <form action="" th:action="@{/record/add}" th:object="${record}" method="post">
             <div class="mb-3">
                 <label for="backNum">등번호</label>
                 <input type="text" class="form-control" id="backNum" th:field="*{backNum}" required>
-                <div style="color:red;" th:errors="*{backNum}"></div>
             </div>
             <div class="mb-3">
                 <label for="name">이름</label>
                 <input type="text" class="form-control" id="name" th:field="*{name}" required>
-                <div style="color:red;" th:errors="*{name}"></div>
             </div>
             <div class="mb-3">
                 <label for="matchNum">경기수</label>
                 <input type="text" value="0" class="form-control" id="matchNum" th:field="*{matchNum}" required>
-                <div style="color:red;" th:errors="*{matchNum}"></div>
             </div>
             <div class="mb-3">
                 <label for="score">득점</label>
                 <input type="text" value="0" class="form-control" id="score" th:field="*{score}" required>
-                <div style="color:red;" th:errors="*{score}"></div>
             </div>
             <div class="mb-3">
                 <label for="assist">어시스트</label>
                 <input type="text" value="0" class="form-control" id="assist" th:field="*{assist}" required>
-                <div style="color:red;" th:errors="*{assist}"></div>
             </div>
             <button class="btn btn-primary btn-lg btn-block" type="submit">작성 완료</button>
         </form>
