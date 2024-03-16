@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Record {
 
+    @Id
     public String backNum;
     public String name;
     public String matchNum;
