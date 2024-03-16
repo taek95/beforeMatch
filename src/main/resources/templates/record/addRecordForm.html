@@ -68,17 +68,21 @@
             </div>
             <div class="mb-3">
                 <label for="matchNum">경기수</label>
-                <input type="text" value="0" class="form-control" id="matchNum" th:field="*{matchNum}" required>
+                <input type="text" th:value="0" class="form-control" id="matchNum" th:field="*{matchNum}" required>
             </div>
             <div class="mb-3">
                 <label for="score">득점</label>
-                <input type="text" value="0" class="form-control" id="score" th:field="*{score}" required>
+                <input type="text" th:value="0" class="form-control" id="score" th:field="*{score}" required>
             </div>
             <div class="mb-3">
                 <label for="assist">어시스트</label>
-                <input type="text" value="0" class="form-control" id="assist" th:field="*{assist}" required>
+                <input type="text" th:value="0" class="form-control" id="assist" th:field="*{assist}" required>
             </div>
-            <button class="btn btn-primary btn-lg btn-block" type="submit">작성 완료</button>
+            <div class="row">
+                <div class="col text-center">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">작성 완료</button>
+                </div>
+            </div>
         </form>
     </div>
 </div>
