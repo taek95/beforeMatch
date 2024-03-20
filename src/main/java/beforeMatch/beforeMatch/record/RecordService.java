@@ -11,6 +11,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -19,5 +21,8 @@ public class RecordService {
 
     public void save(Record record) {
         recordRepository.save(record);
+    }
+    public List<Record> findAll() {
+        return recordRepository.findAll();
     }
 }
