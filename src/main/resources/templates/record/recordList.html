@@ -80,11 +80,11 @@
         </thead>
         <tbody>
         <tr th:each = "record : ${records}">
-            <td> <a th:text="${records.backNum}" th:href="@{#}"></a> </td>
-            <td> <a th:text="${records.name}"></a>
-            <td> <a th:text="${records.matchNum}"></a> </td>
-            <td> <a th:text="${records.score}"></a> </td>
-            <td> <a th:text="${records.assist}"></a> </td>
+            <td> <a th:text="${record.backNum}" th:href="@{#}"></a> </td>
+            <td> <a th:text="${record.name}"></a>
+            <td> <a th:text="${record.matchNum}"></a> </td>
+            <td> <a th:text="${record.score}"></a> </td>
+            <td> <a th:text="${record.assist}"></a> </td>
 
         </tr>
         </tbody>
