@@ -25,4 +25,12 @@ public class RecordService {
     public List<Record> findAll() {
         return recordRepository.findAll();
     }
+    public Record findRecord(String recordId) {
+        return recordRepository.getReferenceById(recordId);
+    }
+    public void recordDelete(String recordId) {
+        recordRepository.deleteById(recordId);
+    }
+
+
 }

@@ -15,14 +15,7 @@
                 background-image: url("/assets/loginHomeBackGround.jpg");
                 background-size: cover;
                 background-position: center;
-        }
-        .page_div {
-                text-align : center;
-        }
-        li {
-            margin-top: 5px;
-            margin-right: 10px;
-        }
+            }
     </style>
 </head>
 <body>
@@ -39,13 +32,9 @@
                     <a class="nav-link active" aria-current="page" th:href="@{/board/list}">게시판</a>
                 </li>
                 <li class="nav-item">
-                    <button type="button" class="btn btn-primary" th:onclick="|location.href='@{/record/add}'|">
-                        선수 등록
-                    </button>
-                </li>
-                <li class="nav-item">
                     <form class="d-flex" th:action="@{/logout}" method="post">
                         <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
                             logout
                         </button>
                     </form>
@@ -63,39 +52,51 @@
     <div class="container px-4 px-lg-5 my-3">
         <div class="text-center">
             <h1 class="display-4 fw-bolder">AboutMatch</h1>
-            <p class="lead fw-normal text-black-100 mb-0">2024시즌 FC ISTA 선수 기록</p>
         </div>
     </div>
 </header>
 <div class="container">
-    <table class="table table-bordered .table-border">
-        <thead>
-        <tr>
-            <th scope="col">등번호</th>
-            <th scope="col">이름</th>
-            <th scope="col">경기수</th>
-            <th scope="col">득점</th>
-            <th scope="col">어시스트</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each = "record : ${records}">
-            <td> <a th:text="${record.backNum}" th:href="@{/record/edit/{id}(id=${record.backNum})}" ></a> </td>
-            <td> <a th:text="${record.name}" ></a>
-            <td> <a th:text="${record.matchNum}"></a> </td>
-            <td> <a th:text="${record.score}"></a> </td>
-            <td> <a th:text="${record.assist}"></a> </td>
-
-        </tr>
-        </tbody>
-    </table>
+    <form class="d-flex" th:action="@{/record/list/{id}(id=${record.backNum})}" th:method="delete">
+        <button class="btn btn-primary" type="submit">
+            삭제
+        </button>
+    </form>
 </div>
+<div class="container">
+    <form action="" th:action="@{/record/edit}" th:object="${record}" th:method="patch">
+        <div class="mb-3">
+            <label for="backNum">등번호</label>
+            <input type="text" class="form-control" id="backNum" th:field="*{backNum}" required>
+        </div>
+        <div class="mb-3">
+            <label for="name">이름</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}" required>
+        </div>
+        <div class="mb-3">
+            <label for="matchNum">경기수</label>
+            <input type="text" class="form-control" id="matchNum" th:field="*{matchNum}" required>
+        </div>
+        <div class="mb-3">
+            <label for="score">득점</label>
+            <input type="text" class="form-control" id="score" th:field="*{score}" required>
+        </div>
+        <div class="mb-3">
+            <label for="assist">어시스트</label>
+            <input type="text" class="form-control" id="assist" th:field="*{assist}" required>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">작성 완료</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- Footer-->
 <br>
 <footer class="py-3">
     <div class="container"><p class="m-0 text-center text-black">Copyright &copy; AboutMatch 2024</p></div>
 </footer>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
