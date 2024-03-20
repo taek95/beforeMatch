@@ -65,7 +65,7 @@
 <div class="container">
     <form action="" th:action="@{/record/edit}" th:object="${record}" th:method="patch">
         <div class="mb-3">
-            <label for="backNum">등번호</label>
+            <label for="backNum">등번호는 수정하지 마세요(문의바람)</label>
             <input type="text" class="form-control" id="backNum" th:field="*{backNum}" required>
         </div>
         <div class="mb-3">
@@ -86,7 +86,7 @@
         </div>
         <div class="row">
             <div class="col text-center">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">작성 완료</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">수정하기</button>
             </div>
         </div>
     </form>
