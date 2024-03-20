@@ -51,7 +51,6 @@ public class RecordController {
 
     @GetMapping("/record/edit/{id}")
     public String editRecord(
-            @Validated Record record, BindingResult bindingResult,
             @PathVariable String id,
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Login loginMember,
             Model model) {

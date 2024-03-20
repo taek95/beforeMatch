@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -22,6 +23,7 @@ public class RecordService {
     public void save(Record record) {
         recordRepository.save(record);
     }
+
     public List<Record> findAll() {
         return recordRepository.findAll();
     }
