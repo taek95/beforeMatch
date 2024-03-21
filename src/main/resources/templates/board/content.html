@@ -40,14 +40,23 @@
     </div>
   </div>
 </header>
+
 <div class="container">
-  작성자 : [[${board.member.memberId}]]
-</div>
-<div class="container">
-  등록 시간 : [[${board.updateAt}]]
-</div>
-<div class="container">
-  내용 <p>[[${board.content}]]</p>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col"> 작성자 : [[${board.member.memberId}]]</th>
+    </tr>
+    <tr>
+      <th scope="col">작성 날짜 : [[${board.updateAt}]]</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><p>[[${board.content}]]</p></td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 
 <!-- Footer-->
