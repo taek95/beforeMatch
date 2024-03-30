@@ -31,10 +31,18 @@ public class BoardController {
         int nowPage = list.getPageable().getPageNumber()+1;
         int startPage = Math.max(nowPage-4,1);
         int endPage = nowPage+2;
-        model.addAttribute("list",list);
-        model.addAttribute("nowPage",nowPage);
-        model.addAttribute("startPage",startPage);
-        model.addAttribute("endPage",endPage);
+
+        model.addAttribute("list", list);
+        model.addAttribute("nowPage", nowPage);
+        model.addAttribute("startPage", startPage);
+
+        if(list.getSize() == 0) {
+            model.addAttribute("endPage", nowPage);
+        }
+        else {
+            model.addAttribute("endPage", endPage);
+        }
+
         if(loginMember == null)
             return "board/boardList";
         else {
