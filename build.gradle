@@ -44,7 +44,7 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 //
-//
+//plain jar 제거 방법 , plain은 모든 의존성이 존재하는게 아니라 에러발생
 jar {
 	enabled = false
 }
