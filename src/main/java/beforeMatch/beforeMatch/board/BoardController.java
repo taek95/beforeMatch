@@ -36,7 +36,7 @@ public class BoardController {
         model.addAttribute("nowPage", nowPage);
         model.addAttribute("startPage", startPage);
 
-        if(list.getSize() == 0) {
+        if(list.isEmpty()) {
             model.addAttribute("endPage", nowPage);
         }
         else {
