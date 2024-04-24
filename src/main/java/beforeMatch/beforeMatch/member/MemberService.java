@@ -13,11 +13,11 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     @Transactional
-    public void join(Member member) {
+    public int join(Member member) {
 
         validateDuplicateUser(member);
         memberRepository.save(member);
-//        return member.getId();
+        return member.getId();
     }
 
     private void validateDuplicateUser(Member member) {
